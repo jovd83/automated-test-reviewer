@@ -1,0 +1,19 @@
+# Automation to Test Case Traceability
+
+{% for script in mapping.scripts %}
+## {{ script.name }}
+
+- Framework: {{ script.framework }}
+- Path: {{ script.path }}
+
+| Case ID | Case title | Match level | Covered sections |
+| --- | --- | --- | --- |
+{% if script.matches %}
+{% for match in script.matches %}
+| {{ match.id }} | {{ match.title }} | {{ match.level }} | {{ match.sections | join(", ") }} |
+{% endfor %}
+{% else %}
+| None | No mapped cases | missing | None |
+{% endif %}
+
+{% endfor %}

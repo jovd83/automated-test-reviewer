@@ -1,0 +1,51 @@
+[
+  {
+    "id": "explain-playwright-login",
+    "prompt": "Use $automated-test-reviewer to explain tests/e2e/login.spec.ts for a product manager.",
+    "expected_workflow": "script-explanation",
+    "expected_artifacts": [
+      "reviews/login-script-explanation.md"
+    ]
+  },
+  {
+    "id": "review-cypress-flakiness",
+    "prompt": "Use $automated-test-reviewer to review cypress/e2e/checkout.cy.ts and highlight flaky patterns.",
+    "expected_workflow": "script-quality-review",
+    "expected_artifacts": [
+      "reviews/checkout-quality-review.md"
+    ]
+  },
+  {
+    "id": "map-manual-cases-to-playwright",
+    "prompt": "Use $automated-test-reviewer to map docs/manual-cases/checkout.csv against tests/e2e/checkout/.",
+    "expected_workflow": "functional-case-mapping",
+    "expected_artifacts": [
+      "reviews/checkout-coverage-mapping.md",
+      "reviews/checkout-traceability.md"
+    ]
+  },
+  {
+    "id": "review-restassured-suite",
+    "prompt": "Use $automated-test-reviewer to review src/test/java/api/orders/ for weak assertions and repeated setup.",
+    "expected_workflow": "script-quality-review",
+    "expected_artifacts": [
+      "reviews/orders-quality-review.md"
+    ]
+  },
+  {
+    "id": "explain-postman-collection",
+    "prompt": "Use $automated-test-reviewer to explain the checkout Postman collection for QA leads.",
+    "expected_workflow": "script-explanation",
+    "expected_artifacts": [
+      "reviews/checkout-script-explanation.md"
+    ]
+  },
+  {
+    "id": "unknown-framework-fallback",
+    "prompt": "Use $automated-test-reviewer to review these tests even though the framework is custom and mixed.",
+    "expected_workflow": "script-quality-review",
+    "expected_artifacts": [
+      "reviews/custom-framework-quality-review.md"
+    ]
+  }
+]

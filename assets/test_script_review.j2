@@ -1,0 +1,113 @@
+# Automation Quality Review
+
+## Scope
+
+- Subject: {{ review.subject_name }}
+- Framework: {{ review.framework }}
+- Files reviewed: {{ review.files_reviewed | join(", ") }}
+- Project: {{ review.project_name or "Not provided" }}
+
+## Executive Summary
+
+{{ review.executive_summary }}
+
+## Findings
+
+| Severity | Title | Evidence | Impact | Recommendation | Confidence |
+| --- | --- | --- | --- | --- | --- |
+{% for finding in review.findings %}
+| {{ finding.severity }} | {{ finding.title }} | {{ finding.evidence }} | {{ finding.impact }} | {{ finding.recommendation }} | {{ finding.confidence }} |
+{% endfor %}
+
+{% for finding in review.findings %}
+### {{ finding.title }}
+
+- Severity: {{ finding.severity }}
+- Confidence: {{ finding.confidence }}
+- Evidence: {{ finding.evidence }}
+- Impact: {{ finding.impact }}
+- Recommendation: {{ finding.recommendation }}
+
+{% if finding.code_snippet %}
+```{{ finding.language or "text" }}
+{{ finding.code_snippet }}
+```
+{% endif %}
+
+{% endfor %}
+
+## Strengths
+
+{% if review.strengths %}
+{% for strength in review.strengths %}
+- {{ strength }}
+{% endfor %}
+{% else %}
+- No material strengths were called out.
+{% endif %}
+
+## Deterministic Checks
+
+{% if review.checks %}
+| Check | Result | Notes |
+| --- | --- | --- |
+{% for check in review.checks %}
+| {{ check.name }} | {{ check.result }} | {{ check.notes }} |
+{% endfor %}
+{% else %}
+- No deterministic checks were run.
+{% endif %}
+
+## Rule Resolution
+
+{% if review.rule_resolution %}
+| Rule source | Effect on review |
+| --- | --- |
+{% for rule in review.rule_resolution %}
+| {{ rule.source }} | {{ rule.effect }} |
+{% endfor %}
+{% else %}
+- No additional enterprise rules were discovered.
+{% endif %}
+
+## Suggested Remediations
+
+{% for item in review.remediations %}
+### {{ item.title }}
+
+- Priority: {{ item.priority }}
+- Why: {{ item.reason }}
+
+{% if item.before %}
+```{{ item.language or "text" }}
+{{ item.before }}
+```
+{% endif %}
+
+{% if item.after %}
+```{{ item.language or "text" }}
+{{ item.after }}
+```
+{% endif %}
+
+{% endfor %}
+
+## Assumptions and Gaps
+
+{% if review.assumptions %}
+{% for assumption in review.assumptions %}
+- {{ assumption }}
+{% endfor %}
+{% else %}
+- No additional assumptions were recorded.
+{% endif %}
+
+## Glossary
+
+{% if review.glossary %}
+{% for term, definition in review.glossary.items() %}
+- **{{ term }}**: {{ definition }}
+{% endfor %}
+{% else %}
+- No glossary entries were needed.
+{% endif %}

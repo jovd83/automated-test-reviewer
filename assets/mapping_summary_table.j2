@@ -1,0 +1,7 @@
+# Coverage Summary Table
+
+| Case ID | Title | Matched | Partial | Missing | Unverifiable | Coverage % |
+| --- | --- | --- | --- | --- | --- | --- |
+{% for case in mapping.cases %}
+| {{ case.id }} | {{ case.title }} | {{ case.stats.matched }} | {{ case.stats.partial }} | {{ case.stats.missing }} | {{ case.stats.unverifiable }} | {{ case.coverage_percent }}% |
+{% endfor %}

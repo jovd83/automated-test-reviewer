@@ -1,0 +1,71 @@
+# Functional Coverage Mapping
+
+## Scope
+
+- Project: {{ mapping.project_name or "Not provided" }}
+- Case sources: {{ mapping.case_sources | join(", ") }}
+- Automation sources: {{ mapping.automation_sources | join(", ") }}
+
+## Coverage Summary
+
+- Total cases: {{ mapping.summary.total_cases }}
+- Matched: {{ mapping.summary.matched_cases }}
+- Partial: {{ mapping.summary.partial_cases }}
+- Missing: {{ mapping.summary.missing_cases }}
+- Unverifiable: {{ mapping.summary.unverifiable_cases }}
+- Coverage percent: {{ mapping.summary.coverage_percent }}%
+
+## Per-Case Analysis
+
+{% for case in mapping.cases %}
+### {{ case.id }} - {{ case.title }}
+
+- Overall status: {{ case.status }}
+- Coverage percent: {{ case.coverage_percent }}%
+- Source: {{ case.source }}
+
+#### Preconditions
+
+| Item | Status | Evidence | Notes |
+| --- | --- | --- | --- |
+{% for item in case.preconditions %}
+| {{ item.text }} | {{ item.status }} | {{ item.evidence or "None" }} | {{ item.notes or "" }} |
+{% endfor %}
+
+#### Actions
+
+| Item | Status | Evidence | Notes |
+| --- | --- | --- | --- |
+{% for item in case.actions %}
+| {{ item.text }} | {{ item.status }} | {{ item.evidence or "None" }} | {{ item.notes or "" }} |
+{% endfor %}
+
+#### Expected Results
+
+| Item | Status | Evidence | Notes |
+| --- | --- | --- | --- |
+{% for item in case.expected_results %}
+| {{ item.text }} | {{ item.status }} | {{ item.evidence or "None" }} | {{ item.notes or "" }} |
+{% endfor %}
+
+{% endfor %}
+
+## Coverage Gaps
+
+{% if mapping.coverage_gaps %}
+{% for gap in mapping.coverage_gaps %}
+- {{ gap }}
+{% endfor %}
+{% else %}
+- No material coverage gaps were identified.
+{% endif %}
+
+## Assumptions and Unverifiable Areas
+
+{% if mapping.assumptions %}
+{% for item in mapping.assumptions %}
+- {{ item }}
+{% endfor %}
+{% else %}
+- No additional assumptions were recorded.
+{% endif %}

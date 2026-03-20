@@ -1,0 +1,76 @@
+# Test Script Explanation
+
+## Scope
+
+- Script: {{ script.name }}
+- Framework: {{ script.framework }}
+- Path: {{ script.path }}
+- Audience: {{ script.audience or "Mixed technical and business stakeholders" }}
+
+## Business Intent
+
+{{ script.business_intent }}
+
+## Setup and Preconditions
+
+| Step | Description | Evidence |
+| --- | --- | --- |
+{% for step in script.setup_steps %}
+| {{ loop.index }} | {{ step.description }} | {{ step.evidence }} |
+{% endfor %}
+
+## Test Flow
+
+| Step | Description | Evidence |
+| --- | --- | --- |
+{% for step in script.flow_steps %}
+| {{ loop.index }} | {{ step.description }} | {{ step.evidence }} |
+{% endfor %}
+
+## Validations
+
+| Check | Assertion | Evidence |
+| --- | --- | --- |
+{% for assertion in script.assertions %}
+| {{ loop.index }} | {{ assertion.description }} | {{ assertion.evidence }} |
+{% endfor %}
+
+## Missing Context
+
+{% if script.missing_context %}
+{% for item in script.missing_context %}
+- {{ item }}
+{% endfor %}
+{% else %}
+- No missing context was identified.
+{% endif %}
+
+## Risks and Assumptions
+
+{% if script.risks_and_assumptions %}
+{% for item in script.risks_and_assumptions %}
+- {{ item }}
+{% endfor %}
+{% else %}
+- No additional risks or assumptions were recorded.
+{% endif %}
+
+## Suggested Clarifications
+
+{% if script.clarifications %}
+{% for item in script.clarifications %}
+- {{ item }}
+{% endfor %}
+{% else %}
+- No follow-up clarifications were needed.
+{% endif %}
+
+## Glossary
+
+{% if script.glossary %}
+{% for term, definition in script.glossary.items() %}
+- **{{ term }}**: {{ definition }}
+{% endfor %}
+{% else %}
+- No glossary entries were needed.
+{% endif %}

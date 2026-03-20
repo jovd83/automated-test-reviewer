@@ -1,0 +1,7 @@
+interface:
+  display_name: "Automated Test Reviewer"
+  short_description: "Explain, review, and map automated tests"
+  default_prompt: "Use $automated-test-reviewer to explain automated tests, review automation quality, or map manual cases to automated coverage."
+
+policy:
+  allow_implicit_invocation: true
