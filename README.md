@@ -1,5 +1,10 @@
 # Automated Test Reviewer
 
+[![Validate Skills](https://github.com/jovd83/automated-test-reviewer/actions/workflows/validate.yml/badge.svg)](https://github.com/jovd83/automated-test-reviewer/actions/workflows/validate.yml)
+[![version](https://img.shields.io/badge/version-2.0.0-blue)](CHANGELOG.md)
+[![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/jovd83)
+
 Explain, assess, and map automated tests with evidence-first Markdown reports.
 
 This Agent Skill helps another agent do three high-value jobs well:
