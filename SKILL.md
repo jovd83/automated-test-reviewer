@@ -125,3 +125,10 @@ Use `references/guidelines/README.md` for the lookup model.
    Fix: Use `references/workflows/framework-onboarding.md` and keep any new framework notes project-local unless the user explicitly asks to evolve the skill.
 4. Problem: The user wants broad product refactoring or non-testing architecture work.
    Fix: Decline or redirect because this skill is for automated test understanding, coverage mapping, and quality review.
+
+## 11. Gotchas
+
+1. **Context Constraints on Mass Review**: Providing an entire test suite or a massive manual test CSV (hundreds of rows) at once can degrade analysis depth. Recommend performing coverage mapping or reviews feature by feature.
+2. **Semantic Divergence in Mapping**: When tracing manual steps to automated code, differing terminology (e.g., a manual step saying "Submit Order" vs code doing `.click('#checkout')`) can cause false negatives in coverage mapping.
+3. **Hidden State and Dynamic Data**: The reviewer analyzes scripts statically. Tests heavily reliant on dynamic setup, database state, or implicit external fixtures may be misunderstood since the runtime behavior is invisible.
+4. **Report Output Path Constraints**: Reports are written directly to `<target-project>/reviews/`. Ensure the target repository allows these files or manually specify an alternate directory if this conflicts with `.gitignore` configurations.
