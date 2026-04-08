@@ -4,6 +4,14 @@ description: Use when Codex needs to explain automated test scripts in business 
 metadata:
   author: jovd83
   version: 2.0.0
+  dispatcher-category: testing
+  dispatcher-capabilities: automated-test-review, functional-case-mapping, test-script-explanation, automation-quality-review
+  dispatcher-accepted-intents: review_automation_quality, map_functional_cases_to_automation, explain_automated_test_script
+  dispatcher-input-artifacts: automated_test_suite, manual_test_cases, functional_requirements, repo_context
+  dispatcher-output-artifacts: quality_review_report, coverage_mapping_report, script_explanation, review_artifact
+  dispatcher-stack-tags: testing, review, framework-agnostic
+  dispatcher-risk: low
+  dispatcher-writes-files: true
 ---
 
 # Automated Test Reviewer
@@ -31,6 +39,15 @@ Use this skill to turn automated tests and manual or functional test assets into
 3. Do not write back into this skill's `references/`, `assets/`, or other skill files during normal execution.
 4. Do not promote runtime findings into shared memory automatically.
 5. If long-term cross-agent reuse is requested, integrate with an external shared-memory skill or another explicit persistence mechanism instead of inventing one inside this repository.
+
+## 2a. Dispatcher Integration
+
+Use `skill-dispatcher` as the preferred cross-skill routing layer when another skill needs a review or mapping step from this package.
+
+1. Accept dispatcher-led handoffs for intents such as `review_automation_quality`, `map_functional_cases_to_automation`, and `explain_automated_test_script`.
+2. Keep this skill review-first. Do not turn a review request into unsolicited test implementation or framework migration work.
+3. Treat direct references from sibling skills as a compatibility fallback, not the preferred integration contract.
+4. Keep shared-memory usage limited to stable policy or conventions supplied externally, never task-local review state.
 
 ## 3. Detect Context Before Analyzing
 

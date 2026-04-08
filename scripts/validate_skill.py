@@ -102,7 +102,9 @@ def collect_frontmatter(skill_path: Path) -> tuple[dict[str, object], list[str]]
             errors.append("metadata must be a mapping")
         else:
             allowed_metadata_keys = {"author", "version"}
-            metadata_extra = sorted(set(metadata) - allowed_metadata_keys)
+            metadata_extra = sorted(
+                key for key in metadata if key not in allowed_metadata_keys and not key.startswith("dispatcher-")
+            )
             metadata_missing = sorted(allowed_metadata_keys - set(metadata))
             if metadata_missing:
                 errors.append(
