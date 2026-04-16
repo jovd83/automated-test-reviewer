@@ -2,8 +2,10 @@
 name: automated-test-reviewer
 description: Use when Codex needs to explain automated test scripts in business language, review test automation quality with findings-first output, or map functional/manual test cases to automated coverage across UI, API, and contract-testing frameworks.
 metadata:
+    dispatcher-layer: execution
+    dispatcher-lifecycle: active
   author: jovd83
-  version: 2.0.0
+  version: 2.1.0
   dispatcher-category: testing
   dispatcher-capabilities: automated-test-review, functional-case-mapping, test-script-explanation, automation-quality-review
   dispatcher-accepted-intents: review_automation_quality, map_functional_cases_to_automation, explain_automated_test_script
@@ -17,6 +19,12 @@ metadata:
 # Automated Test Reviewer
 
 Use this skill to turn automated tests and manual or functional test assets into clear review artifacts. Default to evidence-based analysis, not code modification. Write reports into the target project, never back into this skill repository.
+
+
+## Telemetry & Logging
+> [!IMPORTANT]
+> All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
+> `python scripts/dispatch_logger.py --skill <skill_name> --intent <intent> --reason <reason>`
 
 ## 1. Start
 
