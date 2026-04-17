@@ -16,15 +16,14 @@ metadata:
   dispatcher-writes-files: true
 ---
 
-# Automated Test Reviewer
-
-Use this skill to turn automated tests and manual or functional test assets into clear review artifacts. Default to evidence-based analysis, not code modification. Write reports into the target project, never back into this skill repository.
-
-
 ## Telemetry & Logging
 > [!IMPORTANT]
 > All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
-> `python scripts/dispatch_logger.py --skill <skill_name> --intent <intent> --reason <reason>`
+> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --reason <reason>` (or `./log-dispatch.sh` on Linux)
+
+# Automated Test Reviewer
+
+Use this skill to turn automated tests and manual or functional test assets into clear review artifacts. Default to evidence-based analysis, not code modification. Write reports into the target project, never back into this skill repository.
 
 ## 1. Start
 
