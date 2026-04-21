@@ -2,7 +2,7 @@
 name: automated-test-reviewer
 description: Use when Codex needs to explain automated test scripts in business language, review test automation quality with findings-first output, or map functional/manual test cases to automated coverage across UI, API, and contract-testing frameworks.
 metadata:
-  dispatcher-layer: execution
+  dispatcher-layer: feedback
   dispatcher-lifecycle: active
   author: jovd83
   version: 2.1.0
