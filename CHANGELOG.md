@@ -4,6 +4,11 @@ All notable changes to the `automated-test-reviewer` repository will be document
 
 The format is based on Keep a Changelog and uses `Added`, `Changed`, `Removed`, and `Fixed` sections where useful.
 
+## [2.1.1] - 2026-04-30
+
+### Changed
+- Trim `SKILL.md` frontmatter to fit the 1000-character dispatcher limit (description trim, migrate non-dispatcher fields to body).
+
 ## [Unreleased]
 
 ## [2.0.0] - 2026-03-18
