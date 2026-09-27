@@ -44,14 +44,10 @@ Use this skill to turn automated tests and manual or functional test assets into
 4. Do not promote runtime findings into shared memory automatically.
 5. If long-term cross-agent reuse is requested, integrate with an external shared-memory skill or another explicit persistence mechanism instead of inventing one inside this repository.
 
-## 2a. Dispatcher Integration
+## 2a. Working With Other Skills
 
-Use `skill-dispatcher` as the preferred cross-skill routing layer when another skill needs a review or mapping step from this package.
-
-1. Accept dispatcher-led handoffs for intents such as `review_automation_quality`, `map_functional_cases_to_automation`, and `explain_automated_test_script`.
+1. Accept handoffs from other skills that need an automation-quality review, a functional-case-to-automation mapping, or a test script explained.
 2. Keep this skill review-first. Do not turn a review request into unsolicited test implementation or framework migration work.
-3. Treat direct references from sibling skills as a compatibility fallback, not the preferred integration contract.
-4. Keep shared-memory usage limited to stable policy or conventions supplied externally, never task-local review state.
 
 ## 3. Detect Context Before Analyzing
 
