@@ -42,7 +42,7 @@ Use this skill to turn automated tests and manual or functional test assets into
 2. Use project-local persistent memory only for artifacts created in the target repository, normally under `reviews/`.
 3. Do not write back into this skill's `references/`, `assets/`, or other skill files during normal execution.
 4. Do not promote runtime findings into shared memory automatically.
-5. If long-term cross-agent reuse is requested, integrate with an external shared-memory skill or another explicit persistence mechanism instead of inventing one inside this repository.
+5. If long-term cross-agent reuse is requested, use the agent's own memory (for example CLAUDE.md or AGENTS.md) or another explicit persistence mechanism instead of inventing one inside this repository.
 
 ## 2a. Working With Other Skills
 
